@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ahmadrosid.svgloader.SvgLoader;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
@@ -19,10 +20,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewholder> {
     Context context;
     LayoutInflater inflater;
     List<Model> list;
+    MainActivity activity;
 
-    public MyAdapter(Context context, List<Model> list) {
+    public MyAdapter(Context context, List<Model> list,MainActivity activity) {
         this.context = context;
         this.list = list;
+        this.activity=activity;
         inflater=LayoutInflater.from(context);
     }
 
@@ -49,11 +52,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewholder> {
     public void onBindViewHolder(@NonNull MyAdapter.MyViewholder holder, int position) {
             holder.textView.setText(list.get(position).getName());
             holder.textView2.setText(list.get(position).capital);
-        Picasso.Builder builder= new Picasso.Builder(context);
-        builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(list.get(position).getFlag())
-                .error(R.drawable.ic_launcher_background)
-                .into(holder.imageView);
+        SvgLoader.pluck()
+                .with(activity)
+                .setPlaceHolder(R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground)
+                .load(list.get(position).getFlag(),holder.imageView) ;
 
     }
 

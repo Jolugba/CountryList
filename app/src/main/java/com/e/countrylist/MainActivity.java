@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RetrofitClient retrofitClient;
     String TAG="MainActivity";
     MyAdapter adapter;
-
+    MainActivity activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void generateDataList(List<Model> body) {
         recyclerView=findViewById(R.id.recyclerView);
-        adapter=new MyAdapter(this,body);
+        adapter=new MyAdapter(this,body,activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
