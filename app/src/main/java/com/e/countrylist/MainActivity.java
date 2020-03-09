@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void generateDataList(List<Model> body) {
         recyclerView=findViewById(R.id.recyclerView);
-        adapter=new MyAdapter(this,body,activity);
+        adapter=new MyAdapter(this,body,MainActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
