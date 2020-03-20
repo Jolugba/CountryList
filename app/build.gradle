@@ -50,11 +50,11 @@ dependencies {
     //Interceptor
     implementation 'com.squareup.okhttp3:okhttp:4.2.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
-    //svgLoader
-    implementation'com.github.ar-android:AndroidSvgLoader:1.0.2'
+
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    //SVG
     implementation'com.caverock:androidsvg-aar:1.4'
 
 }
